@@ -11,3 +11,7 @@
 **Diagram PDF:** docs/business_process/business_process_diagram.pdf
 
 **Explanation PDF:** docs/business_process/business_process_explanation.pdf
+### 📄 Phase I Files
+- [View Business Process Diagram](KigaliClean.drawio.png)
+- [View Business Process Explanation](business%20proposal%20explanation.pdf)
+- [View Business Process Document](KigaliClean%20business%20process.docx)
