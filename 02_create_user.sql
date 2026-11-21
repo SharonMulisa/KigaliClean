@@ -4,7 +4,7 @@
 -- Project Name: Kigaliclean
 -- Task: 02 - Create PDB admin user
 
-ALTER SESSION SET CONTAINER = c_20251ima030_sharon_kigali_db;
+ALTER SESSION SET CONTAINER = c_IMA030_sharon_kigali_db;
 
 CREATE USER sharon_admin IDENTIFIED BY sharon
   DEFAULT TABLESPACE kigaliclean_data
