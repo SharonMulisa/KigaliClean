@@ -4,7 +4,7 @@
 -- Project Name: Kigaliclean
 -- Task: 03 - Create tablespaces
 
-ALTER SESSION SET CONTAINER = c_20251ima030_sharon_kigali_db;
+ALTER SESSION SET CONTAINER = c_IMA030_sharon_kigali_db;
 
 CREATE TABLESPACE kigaliclean_data
   DATAFILE 'kigaliclean_data01.dbf' SIZE 100M
