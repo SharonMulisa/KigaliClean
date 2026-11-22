@@ -1,0 +1,33 @@
+Table COUNTRY {
+  country_code varchar [pk]
+  country_name varchar
+  region varchar
+}
+
+Table MANUFACTURER {
+  manufacturer_id int [pk]
+  manufacturer_name varchar
+  manufacturer_country varchar [ref: > COUNTRY.country_code]
+}
+
+Table BRAND {
+  brand_id int [pk]
+  brand_name varchar
+  manufacturer_id int [ref: > MANUFACTURER.manufacturer_id]
+}
+
+Table PRODUCT {
+  product_barcode varchar [pk]
+  product_label varchar
+  product_size varchar
+  brand_id int [ref: > BRAND.brand_id]
+  bottle_weight number
+}
+
+Table SCAN {
+  scan_id int [pk]
+  product_barcode varchar [ref: > PRODUCT.product_barcode]
+  scan_country varchar [ref: > COUNTRY.country_code]
+  bottle_count int
+  data_url varchar
+}
