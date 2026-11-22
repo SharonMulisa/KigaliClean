@@ -1,0 +1,31 @@
+-- Kigaliclean - Phase IV
+-- 02_insert_data.sql
+-- Order matters: parent first, then child
+
+-- 1. COUNTRY
+INSERT INTO COUNTRY VALUES ('MW', 'Malawi', 'Southern Africa');
+INSERT INTO COUNTRY VALUES ('MZ', 'Mozambique', 'Southern Africa');
+INSERT INTO COUNTRY VALUES ('UG', 'Uganda', 'Eastern Africa');
+INSERT INTO COUNTRY VALUES ('RW', 'Rwanda', 'Eastern Africa');
+
+-- 2. MANUFACTURER
+INSERT INTO MANUFACTURER VALUES (1, 'Oyoma General', 'MW');
+INSERT INTO MANUFACTURER VALUES (2, 'Kigali Bottlers', 'RW');
+
+-- 3. BRAND
+INSERT INTO BRAND VALUES (1, 'Kabisa', 1);
+INSERT INTO BRAND VALUES (2, 'Kigali Fresh', 2);
+
+-- 4. PRODUCT
+-- barcode is TEXT, so keep quotes - do not remove them
+INSERT INTO PRODUCT VALUES ('1234003331', 'Kumbucha Alcoholic Drink', '500ml', 1, 550.00);
+INSERT INTO PRODUCT VALUES ('1234003332', 'Kumbucha Original', '500ml', 1, 540.00);
+INSERT INTO PRODUCT VALUES ('1234003333', 'Kigali Fresh Water', '500ml', 2, 520.00);
+
+-- 5. SCAN
+INSERT INTO SCAN VALUES (1, '1234003331', 'MW', 376, 'https://example.com/data/1');
+INSERT INTO SCAN VALUES (2, '1234003331', 'MZ', 210, 'https://example.com/data/2');
+INSERT INTO SCAN VALUES (3, '1234003332', 'UG', 145, 'https://example.com/data/3');
+INSERT INTO SCAN VALUES (4, '1234003333', 'RW', 320, 'https://example.com/data/4');
+
+COMMIT;
