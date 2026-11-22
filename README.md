@@ -15,3 +15,12 @@
 - [View Business Process Diagram](KigaliClean.drawio.png)
 - [View Business Process Explanation](business%20proposal%20explanation.pdf)
 - [View Business Process Document](KigaliClean%20business%20process.docx)
+
+
+## Phase IV - Database Design
+
+- ERD in `docs/design/ER.png`
+- Data Dictionary in `docs/design/data_dictionary.md`
+- Tables in `01_create_tables.sql`
+- Data in `02_insert_data.sql`
+- Tests in `03_validation.sql`
