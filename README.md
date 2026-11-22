@@ -17,10 +17,44 @@
 - [View Business Process Document](KigaliClean%20business%20process.docx)
 
 
-## Phase IV - Database Design
+# KIGALICLEAN
 
-- ERD in `docs/design/ER.png`
-- Data Dictionary in `docs/design/data_dictionary.md`
-- Tables in `01_create_tables.sql`
-- Data in `02_insert_data.sql`
-- Tests in `03_validation.sql`
+**Name:** Mulisa Sharon
+**Student ID:** 20251IMA030
+**Group:** C
+**PDB:** KIGALICLEAN_PDB
+
+## Project Description
+Kigaliclean tracks plastic bottle scans in Kigali. Users scan a bottle barcode, the system identifies the product, brand, and manufacturer, and records where it was scanned.
+
+## Tables
+- **COUNTRY** - country_code (PK), country_name, region
+- **MANUFACTURER** - manufacturer_id (PK), manufacturer_name, manufacturer_country (FK -> COUNTRY)
+- **BRAND** - brand_id (PK), brand_name, manufacturer_id (FK -> MANUFACTURER)
+- **PRODUCT** - product_barcode (PK), product_label, product_size, brand_id (FK -> BRAND), bottle_weight
+- **SCAN** - scan_id (PK), product_barcode (FK -> PRODUCT ON DELETE CASCADE), scan_country (FK -> COUNTRY), bottle_count, data_url
+
+## How To Run (In Order)
+1. `database/ddl/01_schema.sql`
+2. `database/ddl/02_constraints.sql`
+3. `database/ddl/03_indexes.sql`
+4. `database/ddl/04_views.sql`
+5. `database/dml/05_staging_load.sql`
+6. `database/dml/06_clean.sql`
+7. `database/dml/07_load_tables.sql`
+8. `database/tests/08_constraint_tests.sql` - each INSERT must FAIL (proves constraints work)
+9. `database/tests/09_cascade_tests.sql` - deleting a PRODUCT deletes its SCANs
+10. `database/tests/10_verification.sql` - final counts, JOINs, views
+
+## Data Cleaning Done
+- TRIM spaces from barcode / label
+- UPPER country names, INITCAP brand names
+- Empty weight `''` -> NULL
+- DISTINCT to remove duplicate rows
+
+## Constraints Tested
+- PK: duplicate barcode fails
+- FK: brand_id 999 fails
+- CHECK: bottle_count -5 fails
+- UNIQUE: duplicate RWANDA fails
+- NOT NULL: NULL product_label fails
